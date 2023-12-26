@@ -1,0 +1,32 @@
+{
+  "devDependencies": {
+    "@types/adm-zip": "^0.5.5",
+    "@types/node": "^20.10.5"
+  },
+  "dependencies": {
+    "@fastify/autoload": "^5.8.0",
+    "@fastify/cors": "^8.5.0",
+    "@fastify/view": "^8.2.0",
+    "@sinclair/typebox": "^0.32.3",
+    "adm-zip": "^0.5.10",
+    "axios": "^1.6.2",
+    "colorette": "^2.0.20",
+    "dayjs": "^1.11.10",
+    "dotenv": "^16.3.1",
+    "ejs": "^3.1.9",
+    "fastify": "^4.25.2",
+    "fastify-multer": "^2.0.3"
+  },
+  "name": "goprofilev3-vision",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "node dist/src/app.js",
+    "build": "tsc",
+    "dev": "nodemon src/app.ts",
+    "pkg": "yarn build && pkg . -t node18-linux-x64"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}

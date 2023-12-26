@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Vision</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script src="https://unpkg.com/dropzone@5/dist/min/dropzone.min.js"></script>
+  <link rel="stylesheet" href="https://unpkg.com/dropzone@5/dist/min/dropzone.min.css" type="text/css" />
+</head>
+
+<body>
+
+  <div class="container">
+    <h2>Vision</h2>
+    <div class="panel panel-primary">
+      <div class="panel-heading">Upload</div>
+      <div class="panel-body">
+        <form action="/upload" class="dropzone" id="my-dropzone"></form>
+        <div class="form-group">
+          <label for="result">Result:</label>
+          <textarea class="form-control" id="result" name="result" rows="10" readonly></textarea>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+<script>
+  Dropzone.options.myDropzone = {
+    autoProcessQueue: true,
+    parallelUploads: 1,
+    acceptedFiles: '.jpg,.jpeg,.JPEG,.JPG,.png,.PNG',
+    init: function () {
+      thisDropzone = this;
+      this.on("success", function (file, response) {
+        console.log(response);
+        $("#result").append(`${response.data.file}|${response.data.text}\n`);
+      });
+    }
+  };
+</script>
+
+</html>
